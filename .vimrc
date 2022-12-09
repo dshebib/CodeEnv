@@ -120,3 +120,6 @@ set incsearch
 
 " YCM
 highlight Pmenu ctermfg=white ctermbg=black
+
+" yank to clipboard using Shift+y
+vnoremap Y "+y
