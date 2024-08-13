@@ -18,12 +18,15 @@ Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'valloric/youcompleteme'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'honza/vim-snippets'
+Plugin 'vim-airline/vim-airline'
+Plugin 'majutsushi/tagbar'
+Plugin 'govim/govim'
+
 
 
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -65,9 +68,28 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+syntax enable
+
 "Solarized
-set background=light
-colorscheme solarized
+set background=dark
+"colorscheme solarized
+
+"bg transparent
+let g:solarized_termtrans=1
+
+"Degraded colorscheme
+"let g:solarized_termcolors=256
+
+"True colorscheme
+let g:solarized_termcolors=16
+
+"let g:solarized_contrast="high"
+"let g:solarized_contrast="low"
+"let g:solarized_visibility="high"
+"let g:solarized_visibility="low"
+
+call togglebg#map("<F5>")
+highlight Normal ctermbg=NONE
 
 set cursorline
 
@@ -79,11 +101,12 @@ nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap H ^
 nnoremap L $
 
+" nnoremap <C-[> <C-t>
+
 " can add :iabbrev <from> <to> for autocorrect/expands
 
 filetype off
-syntax on 
-filetype plugin indent on 
+filetype plugin indent on
 
 " Vim's auto indentation feature does not work properly with text copied from outside of Vim. Press the <F2> key to toggle paste mode on/off.
 nnoremap <F2> :set invpaste paste?<CR>
@@ -123,3 +146,54 @@ highlight Pmenu ctermfg=white ctermbg=black
 
 " yank to clipboard using Shift+y
 vnoremap Y "+y
+
+set splitright
+set splitbelow
+
+function ShowSpaces(...)
+  let @/='\v(\s+$)|( +\ze\t)'
+  let oldhlsearch=&hlsearch
+  if !a:0
+    let &hlsearch=!&hlsearch
+  else
+    let &hlsearch=a:1
+  end
+  return oldhlsearch
+endfunction
+
+function TrimSpaces() range
+  let oldhlsearch=ShowSpaces(1)
+  execute a:firstline.",".a:lastline."substitute ///gec"
+  let &hlsearch=oldhlsearch
+endfunction
+
+command -bar -nargs=? ShowSpaces call ShowSpaces(<args>)
+command -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call TrimSpaces()
+
+let g:ctrlp_max_files=0
+
+" GoVim
+
+" Suggestion: By default, govim populates the quickfix window with diagnostics
+" reported by gopls after a period of inactivity, the time period being
+" defined by updatetime (help updatetime). Here we suggest a short updatetime
+" time in order that govim/Vim are more responsive/IDE-like
+set updatetime=500
+
+" Suggestion: To make govim/Vim more responsive/IDE-like, we suggest a short
+" balloondelay
+set balloondelay=250
+
+" Suggestion: Turn on the sign column so you can see error marks on lines
+" where there are quickfix errors. Some users who already show line number
+" might prefer to instead have the signs shown in the number column; in which
+" case set signcolumn=number
+" set signcolumn=yes
+
+" Suggestion: show info for completion candidates in a popup menu
+"if has("patch-8.1.1904")
+"  set completeopt+=popup
+"  set completepopup=align:menu,border:off,highlight:Pmenu
+"endif
+
+nmap <F8> :TagbarToggle<CR>
