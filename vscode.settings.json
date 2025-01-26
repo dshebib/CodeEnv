@@ -1,0 +1,68 @@
+{
+    "cmake.configureOnOpen": true,
+    "editor.accessibilitySupport": "off",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+
+    "files.eol": "\n",
+    "git.openRepositoryInParentFolders": "always",
+    "redhat.telemetry.enabled": true,
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "source": "Git Bash"
+        },
+        "Ubuntu (WSL)": {
+            "path": "C:\\WINDOWS\\System32\\wsl.exe",
+            "args": [
+                "-d",
+                "Ubuntu"
+            ]
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "Ubuntu (WSL)",
+    "editor.lineNumbers": "on",
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "window.zoomLevel": 1,
+    "dotnet.codeLens.enableReferencesCodeLens": false,
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
+    "cmake.showConfigureWithDebuggerNotification": false,
+    "cmake.showOptionsMovedNotification": false,
+    "go.formatTool": "gofmt",
+    "workbench.settings.applyToAllProfiles": [
+        "editor.fontSize"
+    ],
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontSize": 12,
+    "explorer.autoReveal": false,
+    "git.autofetch": true,
+    "githubPullRequests.pullBranch": "never",
+    "security.allowedUNCHosts": [
+        "wsl.localhost"
+    ],
+    "gitlens.currentLine.enabled": false,
+    "makefile.configureOnOpen": false,
+    "workbench.colorTheme": "Better Selenized Dark",
+    "workbench.colorCustomizations": {
+        "[Better Selenized Dark]": {
+            "editor.background":"#022730e8" 
+           }
+        },
+        "editor.fontFamily": "Cascadia Code PL"
+}

@@ -1,6 +1,8 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+let mapleader = ','
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -13,26 +15,17 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'valloric/youcompleteme'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'honza/vim-snippets'
 Plugin 'vim-airline/vim-airline'
 Plugin 'majutsushi/tagbar'
-Plugin 'govim/govim'
 
-
-
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
 "Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
@@ -44,6 +37,7 @@ Plugin 'git://git.wincent.com/command-t.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -56,7 +50,8 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-"
+
+set noautoread
 
 "Syntastic Recommended Defaults
 set statusline+=%#warningmsg#
@@ -67,6 +62,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_python_flake8_args='--ignore=E501,E731,E226,E266'
 
 syntax enable
 
@@ -91,7 +88,6 @@ let g:solarized_termcolors=16
 call togglebg#map("<F5>")
 highlight Normal ctermbg=NONE
 
-set cursorline
 
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -120,6 +116,8 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set noshiftround
+set cursorline
+set backspace=2
 
 " Speed up scrolling in Vim
 set ttyfast
@@ -137,6 +135,16 @@ set number
 set hlsearch
 set incsearch
 
+" yank to clipboard using Shift+y
+vnoremap Y "+y
+
+set splitright
+set splitbelow
+
+" Open command window instead of command mode
+nnoremap : q:i
+cnoremap <Esc> <c-c><c-c>
+
 " Map the <Space> key to toggle a selected fold opened/closed.
 " nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 " vnoremap <Space> zf
@@ -144,11 +152,10 @@ set incsearch
 " YCM
 highlight Pmenu ctermfg=white ctermbg=black
 
-" yank to clipboard using Shift+y
-vnoremap Y "+y
+set updatetime=500
+set balloondelay=250
 
-set splitright
-set splitbelow
+nnoremap <leader>] :YcmCompleter GoTo<CR>
 
 function ShowSpaces(...)
   let @/='\v(\s+$)|( +\ze\t)'
@@ -170,30 +177,41 @@ endfunction
 command -bar -nargs=? ShowSpaces call ShowSpaces(<args>)
 command -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call TrimSpaces()
 
+" CtrlP
 let g:ctrlp_max_files=0
-
-" GoVim
-
-" Suggestion: By default, govim populates the quickfix window with diagnostics
-" reported by gopls after a period of inactivity, the time period being
-" defined by updatetime (help updatetime). Here we suggest a short updatetime
-" time in order that govim/Vim are more responsive/IDE-like
-set updatetime=500
-
-" Suggestion: To make govim/Vim more responsive/IDE-like, we suggest a short
-" balloondelay
-set balloondelay=250
-
-" Suggestion: Turn on the sign column so you can see error marks on lines
-" where there are quickfix errors. Some users who already show line number
-" might prefer to instead have the signs shown in the number column; in which
-" case set signcolumn=number
-" set signcolumn=yes
-
-" Suggestion: show info for completion candidates in a popup menu
-"if has("patch-8.1.1904")
-"  set completeopt+=popup
-"  set completepopup=align:menu,border:off,highlight:Pmenu
-"endif
+let g:ctrlp_map = '<c-p>'
 
 nmap <F8> :TagbarToggle<CR>
+
+" GoTags
+" Vim Tagbar config with gotags tags
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
+" Hmmmm
+set maxmempattern=5000

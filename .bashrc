@@ -158,8 +158,12 @@ alias sudop='sudo PATH=$PATH '
 
 export GOPATH="/home/dshebib/go"
 
-#Kubernetes and Go a match made in hell
+#Kubernetes and Go
 export GOPATH="${GOPATH}:/home/dshebib/go/kubernetes/third_party/etcd:/home/dshebib/go/kubernetes/third_party"
 export GOBIN="/home/dshebib/go/bin"
 export PATH="${GOBIN}:${PATH}"
 export KUBE_ROOT="/home/dshebib/go/kubernetes"
+. "$HOME/.cargo/env"
+
+alias python='python3.13'
+alias pip='python3.13 -m pip'
