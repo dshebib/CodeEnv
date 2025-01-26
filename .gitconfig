@@ -1,0 +1,12 @@
+[user]
+	email = danielshebib@gmail.com
+	name = Daniel Shebib
+[diff]
+	tool = vimdiff
+[alias]
+	slog = log --graph --all --topo-order --pretty='format:%h %ai %s%d (%an)'
+[merge]
+	tool = vimdiff
+[difftool]
+	prompt = false
+
