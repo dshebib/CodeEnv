@@ -21,7 +21,6 @@ belak/zsh-utils path:history
 romkatv/powerlevel10k
 
 # Utilities
-zshzoo/macos conditional:is-macos
 belak/zsh-utils path:utility
 romkatv/zsh-bench kind:path
 ohmyzsh/ohmyzsh path:plugins/extract

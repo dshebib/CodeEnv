@@ -3,15 +3,15 @@ call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
-Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
 set nu
 
 syntax enable
-set background=light
-let g:solarized_termcolors=16
+set background=dark
+
+colorscheme darktangom
 
 set cursorline
 
@@ -35,5 +35,8 @@ set splitright
 set splitbelow
 
 set noautoread
+
+set foldmethod=syntax
+set foldlevelstart=99
 
 noremap <S-y> "+y
