@@ -19,8 +19,9 @@ Remove the links with `stow -D <package>`; preview with `stow -n -v <package>`.
 | `vim` | `.vimrc`, `.vim/autoload/plug.vim` |
 | `ghostty` | `.config/ghostty/config.ghostty` |
 
-After stowing the `zsh` package, rebuild the antidote bundle:
+After stowing the `zsh` package, install antidote and build the bundle:
 ```sh
+git clone --depth=1 https://github.com/mattmc3/antidote ~/.antidote
 zsh -c 'source ~/.antidote/antidote.zsh && antidote bundle <~/.zsh_plugins.txt >|~/.zsh_plugins.zsh'
 ```
 Log out and back in so the session picks up the new `.profile`.
@@ -28,6 +29,7 @@ Log out and back in so the session picks up the new `.profile`.
 ## Never stowed
 - `tmux/` — `.tmux.conf`
 - `windows/` — Windows Terminal, VS Code and WSL settings; copy them by hand on Windows.
+- `hyprland/` — snapshot of ML4W Hyprland/waybar config; see `hyprland/MANIFEST.md`.
 
 ## Ghostty theme
 The theme is machine-specific and lives in the untracked `~/.config/ghostty/local.ghostty`, which `config.ghostty` includes through `config-file = ?local.ghostty`:

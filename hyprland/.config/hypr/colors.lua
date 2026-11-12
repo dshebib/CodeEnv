@@ -1,0 +1,102 @@
+
+background = "rgba(1a1110ff)"
+
+error = "rgba(ffb4abff)"
+
+error_container = "rgba(93000aff)"
+
+inverse_on_surface = "rgba(392e2cff)"
+
+inverse_primary = "rgba(904b3dff)"
+
+inverse_surface = "rgba(f1dfdbff)"
+
+on_background = "rgba(f1dfdbff)"
+
+on_error = "rgba(690005ff)"
+
+on_error_container = "rgba(ffdad6ff)"
+
+on_primary = "rgba(561f13ff)"
+
+on_primary_container = "rgba(ffdad3ff)"
+
+on_primary_fixed = "rgba(3a0a03ff)"
+
+on_primary_fixed_variant = "rgba(733427ff)"
+
+on_secondary = "rgba(442a24ff)"
+
+on_secondary_container = "rgba(ffdad3ff)"
+
+on_secondary_fixed = "rgba(2c1510ff)"
+
+on_secondary_fixed_variant = "rgba(5d3f39ff)"
+
+on_surface = "rgba(f1dfdbff)"
+
+on_surface_variant = "rgba(d8c2bdff)"
+
+on_tertiary = "rgba(3d2f04ff)"
+
+on_tertiary_container = "rgba(f9e0a6ff)"
+
+on_tertiary_fixed = "rgba(241a00ff)"
+
+on_tertiary_fixed_variant = "rgba(554519ff)"
+
+outline = "rgba(a08c88ff)"
+
+outline_variant = "rgba(534340ff)"
+
+primary = "rgba(ffb4a5ff)"
+
+primary_container = "rgba(733427ff)"
+
+primary_fixed = "rgba(ffdad3ff)"
+
+primary_fixed_dim = "rgba(ffb4a5ff)"
+
+scrim = "rgba(000000ff)"
+
+secondary = "rgba(e7bdb4ff)"
+
+secondary_container = "rgba(5d3f39ff)"
+
+secondary_fixed = "rgba(ffdad3ff)"
+
+secondary_fixed_dim = "rgba(e7bdb4ff)"
+
+shadow = "rgba(000000ff)"
+
+source_color = "rgba(fa2f04ff)"
+
+surface = "rgba(1a1110ff)"
+
+surface_bright = "rgba(423734ff)"
+
+surface_container = "rgba(271d1bff)"
+
+surface_container_high = "rgba(322826ff)"
+
+surface_container_highest = "rgba(3d3230ff)"
+
+surface_container_low = "rgba(231917ff)"
+
+surface_container_lowest = "rgba(140c0aff)"
+
+surface_dim = "rgba(1a1110ff)"
+
+surface_tint = "rgba(ffb4a5ff)"
+
+surface_variant = "rgba(534340ff)"
+
+tertiary = "rgba(dcc48cff)"
+
+tertiary_container = "rgba(554519ff)"
+
+tertiary_fixed = "rgba(f9e0a6ff)"
+
+tertiary_fixed_dim = "rgba(dcc48cff)"
+
+
