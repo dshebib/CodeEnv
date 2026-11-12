@@ -1,0 +1,7 @@
+alias ll='ls -alh'
+alias gtc='git branch --show-current'
+alias gremain='git checkout main && git pull && git checkout'
+alias gkmid='PATH=$PATH:node_modules/.bin gitkraken'
+alias claudep='claude -p --model sonnet --effort medium'
+alias sudo='sudo '
+alias xclips='xclip -selection clipboard'

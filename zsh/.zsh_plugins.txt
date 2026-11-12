@@ -6,13 +6,10 @@
 # Completions
 mattmc3/ez-compinit
 zsh-users/zsh-completions kind:fpath path:src
-aloxaf/fzf-tab  # Remove if you don't use fzf
+aloxaf/fzf-tab  # requires fzf (sudo apt install fzf)
 
 # Completion styles
 belak/zsh-utils path:completion/functions kind:autoload post:compstyle_zshzoo_setup
-
-# Keybindings
-belak/zsh-utils path:editor
 
 # History
 belak/zsh-utils path:history

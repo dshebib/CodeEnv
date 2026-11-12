@@ -1,11 +1,6 @@
 # ~/.config/ghostty/config.ghostty
 # Run `ghostty +show-config --default --docs | less` to see every option.
 
-# ── Theme ──────────────────────────────────────────────────────────────────
-# Dimidium
-theme = dark:Zenburned,light:Monokai Pro Light Sun
-
-
 # ── Font ───────────────────────────────────────────────────────────────────
 font-family = RobotoMono Nerd Font Mono
 font-size   = 13
@@ -36,8 +31,42 @@ keybind = ctrl+shift+k=goto_split:top
 keybind = ctrl+shift+l=goto_split:right
 keybind = ctrl+shift+[=new_split:left
 keybind = ctrl+shift+]=new_split:right
+keybind = ctrl+shift+-=new_split:down
 keybind = ctrl+shift+o=write_scrollback_file:open
 
+keybind = ctrl+alt+h=resize_split:left,20
+keybind = ctrl+alt+j=resize_split:down,20
+keybind = ctrl+alt+k=resize_split:up,20
+keybind = ctrl+alt+l=resize_split:right,20
+keybind = ctrl+alt+equal=equalize_splits
+keybind = ctrl+shift+z=toggle_split_zoom
+
+# ── Vim scroll mode ────────────────────────────────────────────────────────
+keybind = ctrl+shift+space=activate_key_table:scroll
+keybind = scroll/catch_all=ignore
+keybind = scroll/j=scroll_page_lines:1
+keybind = scroll/k=scroll_page_lines:-1
+keybind = scroll/ctrl+d=scroll_page_fractional:0.5
+keybind = scroll/ctrl+u=scroll_page_fractional:-0.5
+keybind = scroll/ctrl+f=scroll_page_down
+keybind = scroll/ctrl+b=scroll_page_up
+keybind = scroll/g=scroll_to_top
+keybind = scroll/shift+g=scroll_to_bottom
+keybind = scroll/[=jump_to_prompt:-1
+keybind = scroll/]=jump_to_prompt:1
+keybind = scroll/n=navigate_search:next
+keybind = scroll/shift+n=navigate_search:previous
+keybind = scroll/slash=start_search
+keybind = chain=deactivate_key_table
+keybind = scroll/y=copy_to_clipboard
+keybind = chain=deactivate_key_table
+keybind = scroll/escape=deactivate_key_table
+keybind = scroll/q=deactivate_key_table
+keybind = scroll/i=deactivate_key_table
+
 # ── Shell integration (zsh is your login shell, so auto-detect is fine) ────
+# `cursor` omitted so the vi-mode plugin (.zsh_plugins.txt) owns the cursor shape
 shell-integration           = detect
-shell-integration-features  = cursor,sudo,title,ssh-env,ssh-terminfo
+shell-integration-features  = sudo,title,ssh-env,ssh-terminfo
+
+config-file = ?local.ghostty
