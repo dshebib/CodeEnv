@@ -29,6 +29,7 @@ Log out and back in so the session picks up the new `.profile`.
 ## Never stowed
 - `tmux/` — `.tmux.conf`
 - `windows/` — Windows Terminal, VS Code and WSL settings; copy them by hand on Windows.
+  `winTerm.settings.json` goes to `%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json`.
 - `hyprland/` — snapshot of ML4W Hyprland/waybar config; see `hyprland/MANIFEST.md`.
 
 ## Ghostty theme
